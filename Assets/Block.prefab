@@ -128,7 +128,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 1
   m_AngularDrag: 0.05
-  m_GravityScale: 0.5
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -146,6 +146,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f79899bc95ed8d4195988ed99fe8937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myRigidbody: {fileID: 0}
+  upwardForce: 100
+  downwardForce: 1000
   lateralForce: 300
   torqueForce: 10
+  masses: 0a0000003200000064000000
+  colors:
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  - {r: 0, g: 0, b: 0, a: 1}
+  disconnected: 0
