@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class BlockController : MonoBehaviour
 {
-    public float upwardForce;
-    public float downwardForce;
-    public float lateralForce;
-    public float torqueForce;
+    public float upwardForce = 100;
+    public float downwardForce = 1000;
+    public float lateralForce = 300;
+    public float torqueForce = 10;
     public int[] masses = {10, 50 ,300};
     public Color[] colors = {Color.white, Color.gray, Color.black};
     public bool disconnected = false;
@@ -32,6 +32,7 @@ public class BlockController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /* TODO Keypresses do not continue after the block gameObject is disconnected (collision) from the controller. User has to depress input then press again. */
         if (!disconnected && myCollider.IsTouchingLayers()) {
             disconnected = true;
         }
