@@ -9,6 +9,7 @@ public class BlockController : MonoBehaviour
     public float lateralForce = 300;
     public float torqueForce = 10;
     public int[] masses = {10, 50 ,300};
+    public bool randomMassEnabled = false;
     public Color[] colors = {Color.white, Color.gray, Color.black};
     public bool disconnected = false;
     private SpriteRenderer mySpriteRenderer;
@@ -24,7 +25,7 @@ public class BlockController : MonoBehaviour
         myRigidbody = gameObject.GetComponent<Rigidbody2D>();
         myCollider = gameObject.GetComponent<BoxCollider2D>();
 
-        index = Random.Range(0, 3);
+        index = randomMassEnabled ? Random.Range(0, 3) : 1;
         myRigidbody.mass = masses[index];
         mySpriteRenderer.color = colors[index];
     }

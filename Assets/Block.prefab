@@ -150,7 +150,8 @@ MonoBehaviour:
   downwardForce: 1000
   lateralForce: 300
   torqueForce: 10
-  masses: 0a0000003200000064000000
+  masses: 0a000000320000002c010000
+  randomMassEnabled: 0
   colors:
   - {r: 1, g: 1, b: 1, a: 1}
   - {r: 0.5, g: 0.5, b: 0.5, a: 1}
