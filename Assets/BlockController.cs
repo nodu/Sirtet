@@ -33,11 +33,7 @@ public class BlockController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /* TODO Keypresses do not continue after the block gameObject is disconnected (collision) from the controller. User has to depress input then press again. */
-        if (!disconnected && myCollider.IsTouchingLayers()) {
-            disconnected = true;
-        }
-
+      /* TODO Keypresses do not continue after the block gameObject is disconnected (collision) from the controller. User has to depress input then press again. */
         if (!disconnected) {
             if (Input.GetKeyDown(KeyCode.W)) {
                 myRigidbody.AddForce(Vector2.up * upwardForce * masses[index]);
@@ -64,5 +60,32 @@ public class BlockController : MonoBehaviour
                 myRigidbody.AddTorque(-1 * torqueForce * masses[index]);
             }
         }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+      Debug.Log(collision.gameObject.name);
+
+      switch(collision.gameObject.name)
+      {
+        case "Floor":
+            if (!disconnected ) {
+                disconnected = true;
+            }
+            break;
+        case "Block(Clone)":
+            if (!disconnected ) {
+                disconnected = true;
+            }
+          break;
+        case "RightWall":
+            Debug.Log("Ouch, right wall");
+            break;
+        case "LeftWall":
+            Debug.Log("Ouch, left wall");
+            break;
+        default:
+            break;
+      }
     }
 }
