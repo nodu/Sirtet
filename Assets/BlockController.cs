@@ -10,6 +10,7 @@ public class BlockController : MonoBehaviour
     public float torqueForce = 10;
     public int[] masses = { 10, 50, 300 };
     public bool randomMassEnabled = false;
+    public bool isTouchingCeiling = false;
     public Color[] colors = { Color.white, Color.gray, Color.black };
     public bool disconnected = false;
     private SpriteRenderer mySpriteRenderer;
@@ -97,5 +98,16 @@ public class BlockController : MonoBehaviour
             default:
                 break;
         }
+    }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        isTouchingCeiling = true;
+        Debug.Log("Current block " + other.name);
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        isTouchingCeiling = false;
+        Debug.Log("Current block " + other.name);
     }
 }

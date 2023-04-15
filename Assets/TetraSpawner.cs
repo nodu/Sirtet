@@ -18,9 +18,18 @@ public class TetraSpawner : MonoBehaviour
     void Update()
     {
         if (currentTetra.disconnected) {
-            Vector3 position = new(transform.position.x + Random.Range(-10, 10), transform.position.y, 0);
-            GameObject newTetra = Instantiate(tetra, position, transform.rotation);
-            currentTetra = newTetra.GetComponent<BlockController>();
+            if (currentTetra.isTouchingCeiling)
+            {
+                Debug.Log(currentTetra.isTouchingCeiling);
+                Debug.Log("You Win!");
+            }
+            else
+            {
+                Vector3 position = new(transform.position.x + Random.Range(-10, 10), transform.position.y, 0);
+                GameObject newTetra = Instantiate(tetra, position, transform.rotation);
+                currentTetra = newTetra.GetComponent<BlockController>();
+            }
+
         }
     }
 }
